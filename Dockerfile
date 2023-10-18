@@ -2,11 +2,6 @@ FROM python:3.10-slim
 
 ENV PYTHONUNBUFFERED 1
 
-ARG USERNAME
-ARG PASSWORD
-ARG API_TOKEN
-ARG ADMIN_ID
-
 WORKDIR /marz
 
 COPY setup_marz.sh /tmp/setup_marz.sh
