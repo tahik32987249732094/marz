@@ -47,7 +47,7 @@ RUN ln -s /marz/marzban-cli.py /usr/bin/marzban-cli \
 
 COPY run.sh /marz/run.sh
 RUN set -ex \
-    && chmod +x /marz/run.sh /marz/setup_env.sh \
+    && chmod +x /marz/run.sh \
     && /marz/setup_env.sh \
     && caddy fmt --overwrite /etc/caddy/Caddyfile
 
