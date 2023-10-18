@@ -32,6 +32,5 @@ echo "Download caddy completed"
 echo "$checksum  /tmp/caddy.tar.gz" | sha512sum -c
 tar x -z -f /tmp/caddy.tar.gz -C /usr/bin caddy
 rm -f /tmp/caddy.tar.gz
-setcap cap_net_bind_service=+ep /usr/bin/caddy
 chmod +x /usr/bin/caddy
 caddy version
