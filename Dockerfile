@@ -30,25 +30,21 @@ RUN set -ex \
 
 RUN pip install --no-cache-dir --upgrade -r /marz/requirements.txt
 
-COPY .env /marz/.env
+COPY .env /marz/.shell_env
 COPY config.json /marz/xray_config.json
 COPY Caddyfile /etc/caddy/Caddyfile
+RUN echo "UVICORN_UDS = /dev/shm/marzban.sock" > /marz/.env
 
 RUN apt-get remove -y wget curl unzip gcc python3-dev
-
-COPY setup_env.sh /marz/setup_env.sh
-RUN set -ex \
-    && chmod +x /marz/setup_env.sh \
-    && /marz/setup_env.sh
 
 RUN ln -s /marz/marzban-cli.py /usr/bin/marzban-cli \
     && chmod +x /usr/bin/marzban-cli \
     && marzban-cli completion install --shell bash
 
 COPY run.sh /marz/run.sh
+COPY setup_env.sh /marz/setup_env.sh
 RUN set -ex \
-    && chmod +x /marz/run.sh \
-    && /marz/setup_env.sh \
+    && chmod +x /marz/run.sh /marz/setup_env.sh \
     && caddy fmt --overwrite /etc/caddy/Caddyfile
 
 EXPOSE 80
