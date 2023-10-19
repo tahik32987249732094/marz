@@ -5,6 +5,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /marz
 
 COPY setup_marz.sh /tmp/setup_marz.sh
+COPY config.json /marz/config.json
 
 RUN set -ex \
     && apt-get update \
@@ -32,11 +33,7 @@ RUN set -ex \
 RUN pip install --no-cache-dir --upgrade -r /marz/requirements.txt
 
 COPY .env /marz/.shell_env
-COPY config.json /marz/config.json
-RUN set -ex \
-    && cat /marz/config.json | base64 -d > /tmp/decode \
-    && mv /tmp/decode /marz/xray_config.json \
-    && rm /marz/config.json
+
 COPY Caddyfile /etc/caddy/Caddyfile
 RUN echo "UVICORN_UDS = /dev/shm/marzban.sock" > /marz/.env
 
