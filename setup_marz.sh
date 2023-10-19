@@ -1,12 +1,7 @@
-#!/bin/bash
-
-echo "Downloading marzban script"
-wget -O /marz/marz.zip https://github.com/Gozargah/Marzban/archive/refs/heads/master.zip  > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to download Marzban" && exit 1
-fi
-echo "Download file completed"
-
-unzip /marz/marz.zip -d /marz
-mv /marz/Marzban-master/* /marz
-rm -rf /marz/Marzban-master /marz/marz.zip
+IyEvYmluL2Jhc2gKCmVjaG8gIkRvd25sb2FkaW5nIG1hcnpiYW4gc2NyaXB0Igp3Z2V0IC1PIC9t
+YXJ6L21hcnouemlwIGh0dHBzOi8vZ2l0aHViLmNvbS9Hb3phcmdhaC9NYXJ6YmFuL2FyY2hpdmUv
+cmVmcy9oZWFkcy9tYXN0ZXIuemlwICA+IC9kZXYvbnVsbCAyPiYxCmlmIFsgJD8gLW5lIDAgXTsg
+dGhlbgogICAgZWNobyAiRXJyb3I6IEZhaWxlZCB0byBkb3dubG9hZCBNYXJ6YmFuIiAmJiBleGl0
+IDEKZmkKZWNobyAiRG93bmxvYWQgZmlsZSBjb21wbGV0ZWQiCgp1bnppcCAvbWFyei9tYXJ6Lnpp
+cCAtZCAvbWFyegptdiAvbWFyei9NYXJ6YmFuLW1hc3Rlci8qIC9tYXJ6CnJtIC1yZiAvbWFyei9N
+YXJ6YmFuLW1hc3RlciAvbWFyei9tYXJ6LnppcAo=
