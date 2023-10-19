@@ -1,32 +1,11 @@
-{
-  "log": {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "none"
-  },
-  "inbounds": [
-    {
-      "tag": "VLESS-WS",
-      "listen": "127.0.0.1",
-      "port": 2012,
-      "protocol": "vless",
-      "settings": {
-        "decryption": "none",
-        "clients": []
-      },
-      "streamSettings": {
-        "security": "none",
-        "network": "ws",
-        "wsSettings": {
-          "path": "/iamtrazy?ed=2048"
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "tag": "DIRECT"
-    }
-  ]
-}
+ewogICJsb2ciOiB7CiAgICAiYWNjZXNzIjogIi92YXIvbG9nL3hyYXkvYWNjZXNzLmxvZyIsCiAg
+ICAiZXJyb3IiOiAiL3Zhci9sb2cveHJheS9lcnJvci5sb2ciLAogICAgImxvZ2xldmVsIjogIm5v
+bmUiCiAgfSwKICAiaW5ib3VuZHMiOiBbCiAgICB7CiAgICAgICJ0YWciOiAiVkxFU1MtV1MiLAog
+ICAgICAibGlzdGVuIjogIjEyNy4wLjAuMSIsCiAgICAgICJwb3J0IjogMjAxMiwKICAgICAgInBy
+b3RvY29sIjogInZsZXNzIiwKICAgICAgInNldHRpbmdzIjogewogICAgICAgICJkZWNyeXB0aW9u
+IjogIm5vbmUiLAogICAgICAgICJjbGllbnRzIjogW10KICAgICAgfSwKICAgICAgInN0cmVhbVNl
+dHRpbmdzIjogewogICAgICAgICJzZWN1cml0eSI6ICJub25lIiwKICAgICAgICAibmV0d29yayI6
+ICJ3cyIsCiAgICAgICAgIndzU2V0dGluZ3MiOiB7CiAgICAgICAgICAicGF0aCI6ICIvaWFtdHJh
+enk/ZWQ9MjA0OCIKICAgICAgICB9CiAgICAgIH0KICAgIH0KICBdLAogICJvdXRib3VuZHMiOiBb
+CiAgICB7CiAgICAgICJwcm90b2NvbCI6ICJmcmVlZG9tIiwKICAgICAgInRhZyI6ICJESVJFQ1Qi
+CiAgICB9CiAgXQp9Cg==
