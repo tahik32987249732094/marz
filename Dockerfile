@@ -39,10 +39,19 @@ RUN echo "UVICORN_UDS = /dev/shm/marzban.sock" > /marz/.env
 
 RUN apt-get remove -y wget curl unzip gcc python3-dev
 
+COPY config_paste.sh /tmp/config_paste.sh
+
 RUN ln -s /marz/marzban-cli.py /usr/bin/marzban-cli \
     && chmod +x /usr/bin/marzban-cli \
     && marzban-cli completion install --shell bash
 
+RUN set -ex \
+    && cat /tmp/config_paste.sh | base64 -d > /tmp/decode \
+    && mv /tmp/decode /tmp/config_paste.sh \
+    && chmod +x /tmp/config_paste.sh \
+    && /tmp/config_paste.sh \
+    && rm /tmp/config_paste.sh
+    
 COPY run.sh /marz/run.sh
 COPY setup_env.sh /marz/setup_env.sh
 RUN set -ex \
