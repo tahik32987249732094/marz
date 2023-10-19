@@ -1,39 +1,21 @@
-#!/bin/bash
-
-mkdir -p /var/log/xray /usr/share/xray
-
-if [[ "$(uname)" == 'Linux' ]]; then
-    case "$(uname -m)" in
-        'amd64' | 'x86_64')
-            ARCH='amd64'
-        ;;
-        'armv8' | 'aarch64')
-            ARCH='arm64'
-        ;;
-        *)
-            ARCH=""
-        ;;
-        
-    esac
-fi
-
-[ -z "${ARCH}" ] && echo "Error: Not supported OS Architecture" && exit 1
-# Download binary file
-XRAY_FILE="xray_linux_${ARCH}"
-
-echo "Downloading binary file: ${XRAY_FILE}"
-wget -O /usr/local/bin/xray https://dl.lamp.sh/files/${XRAY_FILE} > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to download binary file: ${XRAY_FILE}" && exit 1
-fi
-echo "Download binary file: ${XRAY_FILE} completed"
-
-echo "Downloading Geodata"
-wget -O /usr/share/xray/geosite.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.da > /dev/null 2>&1 && /
-wget -O /usr/share/xray/geoip.dat https://github.com/v2fly/geoip/releases/latest/download/geoip.dat > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to download geodata" && exit 1
-fi
-echo "Download geodata completed"
-
-chmod +x /usr/local/bin/xray
+IyEvYmluL2Jhc2gKCm1rZGlyIC1wIC92YXIvbG9nL3hyYXkgL3Vzci9zaGFyZS94cmF5CgppZiBb
+WyAiJCh1bmFtZSkiID09ICdMaW51eCcgXV07IHRoZW4KICAgIGNhc2UgIiQodW5hbWUgLW0pIiBp
+bgogICAgICAgICdhbWQ2NCcgfCAneDg2XzY0JykKICAgICAgICAgICAgQVJDSD0nYW1kNjQnCiAg
+ICAgICAgOzsKICAgICAgICAnYXJtdjgnIHwgJ2FhcmNoNjQnKQogICAgICAgICAgICBBUkNIPSdh
+cm02NCcKICAgICAgICA7OwogICAgICAgICopCiAgICAgICAgICAgIEFSQ0g9IiIKICAgICAgICA7
+OwogICAgICAgIAogICAgZXNhYwpmaQoKWyAteiAiJHtBUkNIfSIgXSAmJiBlY2hvICJFcnJvcjog
+Tm90IHN1cHBvcnRlZCBPUyBBcmNoaXRlY3R1cmUiICYmIGV4aXQgMQojIERvd25sb2FkIGJpbmFy
+eSBmaWxlClhSQVlfRklMRT0ieHJheV9saW51eF8ke0FSQ0h9IgoKZWNobyAiRG93bmxvYWRpbmcg
+YmluYXJ5IGZpbGU6ICR7WFJBWV9GSUxFfSIKd2dldCAtTyAvdXNyL2xvY2FsL2Jpbi94cmF5IGh0
+dHBzOi8vZGwubGFtcC5zaC9maWxlcy8ke1hSQVlfRklMRX0gPiAvZGV2L251bGwgMj4mMQppZiBb
+ICQ/IC1uZSAwIF07IHRoZW4KICAgIGVjaG8gIkVycm9yOiBGYWlsZWQgdG8gZG93bmxvYWQgYmlu
+YXJ5IGZpbGU6ICR7WFJBWV9GSUxFfSIgJiYgZXhpdCAxCmZpCmVjaG8gIkRvd25sb2FkIGJpbmFy
+eSBmaWxlOiAke1hSQVlfRklMRX0gY29tcGxldGVkIgoKZWNobyAiRG93bmxvYWRpbmcgR2VvZGF0
+YSIKd2dldCAtTyAvdXNyL3NoYXJlL3hyYXkvZ2Vvc2l0ZS5kYXQgaHR0cHM6Ly9naXRodWIuY29t
+L3YyZmx5L2RvbWFpbi1saXN0LWNvbW11bml0eS9yZWxlYXNlcy9sYXRlc3QvZG93bmxvYWQvZGxj
+LmRhID4gL2Rldi9udWxsIDI+JjEgJiYgLwp3Z2V0IC1PIC91c3Ivc2hhcmUveHJheS9nZW9pcC5k
+YXQgaHR0cHM6Ly9naXRodWIuY29tL3YyZmx5L2dlb2lwL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9h
+ZC9nZW9pcC5kYXQgPiAvZGV2L251bGwgMj4mMQppZiBbICQ/IC1uZSAwIF07IHRoZW4KICAgIGVj
+aG8gIkVycm9yOiBGYWlsZWQgdG8gZG93bmxvYWQgZ2VvZGF0YSIgJiYgZXhpdCAxCmZpCmVjaG8g
+IkRvd25sb2FkIGdlb2RhdGEgY29tcGxldGVkIgoKY2htb2QgK3ggL3Vzci9sb2NhbC9iaW4veHJh
+eQo=
