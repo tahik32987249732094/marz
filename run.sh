@@ -1,5 +1,3 @@
-#!/bin/bash
-/marz/setup_env.sh
-alembic upgrade head
-nohup python main.py &>/dev/null &
-nohup caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+IyEvYmluL2Jhc2gKL21hcnovc2V0dXBfZW52LnNoCmFsZW1iaWMgdXBncmFkZSBoZWFkCm5vaHVw
+IHB5dGhvbiBtYWluLnB5ICY+L2Rldi9udWxsICYKbm9odXAgY2FkZHkgcnVuIC0tY29uZmlnIC9l
+dGMvY2FkZHkvQ2FkZHlmaWxlIC0tYWRhcHRlciBjYWRkeWZpbGUK

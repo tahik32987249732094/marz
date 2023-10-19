@@ -1,36 +1,21 @@
-#!/bin/bash
-
-mkdir -p /var/log/caddy
-
-if [[ "$(uname)" == 'Linux' ]]; then
-    case "$(uname -m)" in
-        'amd64' | 'x86_64')
-            binArch='amd64';
-            checksum='4afdf50ccf3a8f32344dbac46006ca2b5d90c2ef656c53e8617f1c3b81c5f9e44bd3a9e0b62975f73c85451c354d3d9b5292f5247d18a62d95ab19c8b0a5dba7'
-        ;;
-        'armv8' | 'aarch64')
-            binArch='arm64';
-            checksum='a857cbe25bcc5402e9c4fa2a6c36338f91b7e23962beedccd32e10b3aa34dda084ae742c79085d6e7581acfe33f7c9cf161224b1e56cdb661ebfb6f7424b8d0a'
-        ;;
-        *)
-            echo "Error: The architecture is not supported by the script"
-            exit 1
-        ;;
-    esac
-else
-    echo "Error: This operating system is not supported."
-    exit 1
-fi
-
-echo "Downloading caddy"
-wget -O /tmp/caddy.tar.gz "https://github.com/caddyserver/caddy/releases/download/v2.7.5/caddy_2.7.5_linux_${binArch}.tar.gz"  > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to download caddy" && exit 1
-fi
-echo "Download caddy completed"
-
-echo "$checksum  /tmp/caddy.tar.gz" | sha512sum -c
-tar x -z -f /tmp/caddy.tar.gz -C /usr/bin caddy
-rm -f /tmp/caddy.tar.gz
-chmod +x /usr/bin/caddy
-caddy version
+IyEvYmluL2Jhc2gKCm1rZGlyIC1wIC92YXIvbG9nL2NhZGR5CgppZiBbWyAiJCh1bmFtZSkiID09
+ICdMaW51eCcgXV07IHRoZW4KICAgIGNhc2UgIiQodW5hbWUgLW0pIiBpbgogICAgICAgICdhbWQ2
+NCcgfCAneDg2XzY0JykKICAgICAgICAgICAgYmluQXJjaD0nYW1kNjQnOwogICAgICAgICAgICBj
+aGVja3N1bT0nNGFmZGY1MGNjZjNhOGYzMjM0NGRiYWM0NjAwNmNhMmI1ZDkwYzJlZjY1NmM1M2U4
+NjE3ZjFjM2I4MWM1ZjllNDRiZDNhOWUwYjYyOTc1ZjczYzg1NDUxYzM1NGQzZDliNTI5MmY1MjQ3
+ZDE4YTYyZDk1YWIxOWM4YjBhNWRiYTcnCiAgICAgICAgOzsKICAgICAgICAnYXJtdjgnIHwgJ2Fh
+cmNoNjQnKQogICAgICAgICAgICBiaW5BcmNoPSdhcm02NCc7CiAgICAgICAgICAgIGNoZWNrc3Vt
+PSdhODU3Y2JlMjViY2M1NDAyZTljNGZhMmE2YzM2MzM4ZjkxYjdlMjM5NjJiZWVkY2NkMzJlMTBi
+M2FhMzRkZGEwODRhZTc0MmM3OTA4NWQ2ZTc1ODFhY2ZlMzNmN2M5Y2YxNjEyMjRiMWU1NmNkYjY2
+MWViZmI2Zjc0MjRiOGQwYScKICAgICAgICA7OwogICAgICAgICopCiAgICAgICAgICAgIGVjaG8g
+IkVycm9yOiBUaGUgYXJjaGl0ZWN0dXJlIGlzIG5vdCBzdXBwb3J0ZWQgYnkgdGhlIHNjcmlwdCIK
+ICAgICAgICAgICAgZXhpdCAxCiAgICAgICAgOzsKICAgIGVzYWMKZWxzZQogICAgZWNobyAiRXJy
+b3I6IFRoaXMgb3BlcmF0aW5nIHN5c3RlbSBpcyBub3Qgc3VwcG9ydGVkLiIKICAgIGV4aXQgMQpm
+aQoKZWNobyAiRG93bmxvYWRpbmcgY2FkZHkiCndnZXQgLU8gL3RtcC9jYWRkeS50YXIuZ3ogImh0
+dHBzOi8vZ2l0aHViLmNvbS9jYWRkeXNlcnZlci9jYWRkeS9yZWxlYXNlcy9kb3dubG9hZC92Mi43
+LjUvY2FkZHlfMi43LjVfbGludXhfJHtiaW5BcmNofS50YXIuZ3oiICA+IC9kZXYvbnVsbCAyPiYx
+CmlmIFsgJD8gLW5lIDAgXTsgdGhlbgogICAgZWNobyAiRXJyb3I6IEZhaWxlZCB0byBkb3dubG9h
+ZCBjYWRkeSIgJiYgZXhpdCAxCmZpCmVjaG8gIkRvd25sb2FkIGNhZGR5IGNvbXBsZXRlZCIKCmVj
+aG8gIiRjaGVja3N1bSAgL3RtcC9jYWRkeS50YXIuZ3oiIHwgc2hhNTEyc3VtIC1jCnRhciB4IC16
+IC1mIC90bXAvY2FkZHkudGFyLmd6IC1DIC91c3IvYmluIGNhZGR5CnJtIC1mIC90bXAvY2FkZHku
+dGFyLmd6CmNobW9kICt4IC91c3IvYmluL2NhZGR5CmNhZGR5IHZlcnNpb24K
