@@ -13,7 +13,7 @@
     file_server
 
 	@vws {
-		path /rezoth
+		path /websocket
 		header Connection *Upgrade*
 		header Upgrade websocket
 	}
